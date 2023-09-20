@@ -89,3 +89,16 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: DTHULUTH
+      fonts:
+        - asset: assets/fonts/DTHULUTH.TTF
+    - family: ElMessiri-SemiBold
+      fonts:
+        - asset: assets/fonts/ElMessiri-SemiBold.ttf
+    - family: JF Flat regular
+      fonts:
+        - asset: assets/fonts/JF Flat regular.otf
+    - family: KOUFIBD
+      fonts:
+        - asset: assets/fonts/KOUFIBD.ttf
