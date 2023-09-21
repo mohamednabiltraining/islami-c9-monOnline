@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami_c9_mon/MyThemeData.dart';
 import 'package:islami_c9_mon/chapterDetails/VerseWidget.dart';
 
 class ChapterDetailsScreen extends StatefulWidget {
@@ -18,9 +19,11 @@ class _ChapterDetailsScreenState extends State<ChapterDetailsScreen> {
       loadFile(args.index); // 5s
     }
     return Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/images/main_background.png'),
+                image: AssetImage(MyThemeData.isDarkEnabled
+                    ? 'assets/images/main_background_dark.png'
+                    : 'assets/images/main_background.png'),
                 fit: BoxFit.fill)),
         child: Scaffold(
           appBar: AppBar(
@@ -36,8 +39,8 @@ class _ChapterDetailsScreenState extends State<ChapterDetailsScreen> {
                       },
                       itemCount: verses.length,
                       separatorBuilder: (context, index) => Container(
-                            margin: EdgeInsets.symmetric(horizontal: 48),
-                            color: Theme.of(context).primaryColor,
+                        margin: EdgeInsets.symmetric(horizontal: 48),
+                            color: Theme.of(context).colorScheme.secondary,
                             width: double.infinity,
                             height: 2,
                           )),
