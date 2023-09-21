@@ -133,12 +133,11 @@ class QuranTab extends StatelessWidget {
             decoration: BoxDecoration(
                 border: Border.symmetric(
                     horizontal: BorderSide(
-                        width: 2, color: Theme.of(context).primaryColor))),
+                        width: 2,
+                        color: Theme.of(context).colorScheme.secondary))),
             width: double.infinity,
-            child: Text(
-              AppLocalizations.of(context)!.chapter_name,
-              style: TextStyle(color: Colors.black, fontSize: 24),
-            )),
+            child: Text(AppLocalizations.of(context)!.chapter_name,
+                style: Theme.of(context).textTheme.titleMedium)),
         Expanded(
           flex: 3,
           child: ListView.separated(
@@ -147,7 +146,7 @@ class QuranTab extends StatelessWidget {
             },
             separatorBuilder: (context, index) => Container(
               margin: EdgeInsets.symmetric(horizontal: 48),
-              color: Theme.of(context).primaryColor,
+              color: Theme.of(context).colorScheme.secondary,
               width: double.infinity,
               height: 2,
             ),

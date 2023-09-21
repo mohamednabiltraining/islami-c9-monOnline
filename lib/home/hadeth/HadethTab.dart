@@ -24,11 +24,10 @@ class _HadethTabState extends State<HadethTab> {
           decoration: BoxDecoration(
               border: Border.symmetric(
                   horizontal: BorderSide(
-                      color: Theme.of(context).primaryColor, width: 2))),
-          child: Text(
-            AppLocalizations.of(context)!.hadeth_number,
-            style: TextStyle(color: Colors.black, fontSize: 24),
-          ),
+                      color: Theme.of(context).colorScheme.secondary,
+                      width: 2))),
+          child: Text(AppLocalizations.of(context)!.hadeth_number,
+              style: Theme.of(context).textTheme.titleMedium),
         ),
         Expanded(
             child: allHadeth.isEmpty
@@ -38,7 +37,7 @@ class _HadethTabState extends State<HadethTab> {
                       return HadethTitleWidget(allHadeth[index]);
                     },
                     separatorBuilder: (buildContext, index) => Container(
-                          color: Theme.of(context).primaryColor,
+                      color: Theme.of(context).colorScheme.secondary,
                           height: 2,
                           width: double.infinity,
                           margin: EdgeInsets.symmetric(horizontal: 32),

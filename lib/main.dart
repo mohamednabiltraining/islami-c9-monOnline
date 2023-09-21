@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami_c9_mon/MyThemeData.dart';
 import 'package:islami_c9_mon/chapterDetails/ChapterDetailsScreen.dart';
 import 'package:islami_c9_mon/hadethDetails/HadethDetailsScreen.dart';
 import 'package:islami_c9_mon/home/HomeScreen.dart';
@@ -16,33 +17,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-          cardColor: Colors.white,
-          cardTheme: CardTheme(
-              surfaceTintColor: Colors.white,
-              color: Colors.white,
-              elevation: 18,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(18),
-              )),
-          bottomNavigationBarTheme: BottomNavigationBarThemeData(
-              selectedItemColor: Colors.black,
-              selectedIconTheme: IconThemeData(size: 32),
-              unselectedItemColor: Colors.white),
-          scaffoldBackgroundColor: Colors.transparent,
-          appBarTheme: AppBarTheme(
-              iconTheme: IconThemeData(color: Colors.black),
-              color: Colors.transparent,
-              elevation: 0,
-              titleTextStyle: TextStyle(fontSize: 28, color: Colors.black)),
-          colorScheme: ColorScheme.fromSeed(
-            seedColor: Color(0xFFB7935F),
-            primary: Color(0xFFB7935F),
-            onPrimary: Colors.white,
-            secondary: Color(0xFFB7935F),
-            onSecondary: Colors.black,
-          ),
-          useMaterial3: true),
+      theme: MyThemeData.lightTheme,
+      darkTheme: MyThemeData.darkTheme,
+      themeMode: ThemeMode.dark,
       initialRoute: HomeScreen.routeName,
       routes: {
         HomeScreen.routeName: (_) => HomeScreen(),
