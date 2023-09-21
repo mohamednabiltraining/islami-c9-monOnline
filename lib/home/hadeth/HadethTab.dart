@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_c9_mon/home/hadeth/Hadeth.dart';
 import 'package:islami_c9_mon/home/hadeth/HadethTitleWidget.dart';
-
 class HadethTab extends StatefulWidget {
   @override
   State<HadethTab> createState() => _HadethTabState();
@@ -26,7 +26,7 @@ class _HadethTabState extends State<HadethTab> {
                   horizontal: BorderSide(
                       color: Theme.of(context).primaryColor, width: 2))),
           child: Text(
-            'Hadeth Name',
+            AppLocalizations.of(context)!.hadeth_number,
             style: TextStyle(color: Colors.black, fontSize: 24),
           ),
         ),
