@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_c9_mon/MyThemeData.dart';
 import 'package:islami_c9_mon/chapterDetails/ChapterDetailsScreen.dart';
 import 'package:islami_c9_mon/hadethDetails/HadethDetailsScreen.dart';
@@ -25,6 +26,9 @@ class MyApp extends StatelessWidget {
         ChapterDetailsScreen.routeName: (_) => ChapterDetailsScreen(),
         HadethDetailsScreen.routeName: (_) => HadethDetailsScreen(),
       },
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: Locale('en'),
     );
   }
 }
