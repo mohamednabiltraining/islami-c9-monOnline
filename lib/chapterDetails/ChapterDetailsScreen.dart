@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islami_c9_mon/MyThemeData.dart';
 import 'package:islami_c9_mon/chapterDetails/VerseWidget.dart';
+import 'package:islami_c9_mon/providers/SettingsProvider.dart';
+import 'package:provider/provider.dart';
 
 class ChapterDetailsScreen extends StatefulWidget {
   static const String routeName = 'chapter-details';
@@ -13,6 +14,7 @@ class ChapterDetailsScreen extends StatefulWidget {
 class _ChapterDetailsScreenState extends State<ChapterDetailsScreen> {
   @override
   Widget build(BuildContext context) {
+    var settingsProvider = Provider.of<SettingsProvider>(context);
     ChapterDetailsArgs args =
         ModalRoute.of(context)?.settings.arguments as ChapterDetailsArgs;
     if (verses.isEmpty) {
@@ -21,9 +23,7 @@ class _ChapterDetailsScreenState extends State<ChapterDetailsScreen> {
     return Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage(MyThemeData.isDarkEnabled
-                    ? 'assets/images/main_background_dark.png'
-                    : 'assets/images/main_background.png'),
+                image: AssetImage(settingsProvider.getMainBackground()),
                 fit: BoxFit.fill)),
         child: Scaffold(
           appBar: AppBar(
@@ -32,19 +32,19 @@ class _ChapterDetailsScreenState extends State<ChapterDetailsScreen> {
           body: verses.isEmpty
               ? Center(child: CircularProgressIndicator())
               : Card(
-                  margin: EdgeInsets.symmetric(vertical: 48, horizontal: 12),
-                  child: ListView.separated(
-                      itemBuilder: (context, index) {
-                        return VerseWidget(verses[index], index + 1);
-                      },
-                      itemCount: verses.length,
-                      separatorBuilder: (context, index) => Container(
-                        margin: EdgeInsets.symmetric(horizontal: 48),
-                            color: Theme.of(context).colorScheme.secondary,
-                            width: double.infinity,
-                            height: 2,
-                          )),
-                ),
+            margin: EdgeInsets.symmetric(vertical: 48, horizontal: 12),
+            child: ListView.separated(
+                itemBuilder: (context, index) {
+                  return VerseWidget(verses[index], index + 1);
+                },
+                itemCount: verses.length,
+                separatorBuilder: (context, index) => Container(
+                  margin: EdgeInsets.symmetric(horizontal: 48),
+                  color: Theme.of(context).colorScheme.secondary,
+                  width: double.infinity,
+                  height: 2,
+                )),
+          ),
         ));
   }
 
