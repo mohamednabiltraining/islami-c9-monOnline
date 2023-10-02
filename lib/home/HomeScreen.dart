@@ -7,6 +7,8 @@ import 'package:islami_c9_mon/home/tasbeh/TasbehTab.dart';
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'home';
 
+  const HomeScreen({super.key});
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -23,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
               fit: BoxFit.fill)),
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
+          title: const Text(
             'Islami',
           ),
         ),
@@ -37,19 +39,19 @@ class _HomeScreenState extends State<HomeScreen> {
           items: [
             BottomNavigationBarItem(
                 backgroundColor: Theme.of(context).primaryColor,
-                icon: ImageIcon(AssetImage('assets/images/ic_quran.png')),
+                icon: const ImageIcon(AssetImage('assets/images/ic_quran.png')),
                 label: 'Quran'),
             BottomNavigationBarItem(
                 backgroundColor: Theme.of(context).primaryColor,
-                icon: ImageIcon(AssetImage('assets/images/ic_hadeth.png')),
+                icon: const ImageIcon(AssetImage('assets/images/ic_hadeth.png')),
                 label: 'Hadeth'),
             BottomNavigationBarItem(
                 backgroundColor: Theme.of(context).primaryColor,
-                icon: ImageIcon(AssetImage('assets/images/ic_sebha.png')),
+                icon: const ImageIcon(AssetImage('assets/images/ic_sebha.png')),
                 label: 'Tasbeh'),
             BottomNavigationBarItem(
                 backgroundColor: Theme.of(context).primaryColor,
-                icon: ImageIcon(AssetImage('assets/images/ic_radio.png')),
+                icon: const ImageIcon(AssetImage('assets/images/ic_radio.png')),
                 label: 'Radio'),
           ],
         ),
@@ -58,5 +60,5 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  List<Widget> tabs = [QuranTab(), HadethTab(), TasbehTab(), RadioTab()];
+  List<Widget> tabs = [QuranTab(), HadethTab(), const Sebha(), RadioTab()];
 }
